@@ -58,25 +58,25 @@ def query_handler(call):
     answer = ''
     if call.data == '1':
         markup = telebot.types.InlineKeyboardMarkup()
-        markup.add(telebot.types.InlineKeyboardButton(text='Выбрать другой язык', callback_data=3))
-        markup.add(telebot.types.InlineKeyboardButton(text='Отмена', callback_data=4))
+        markup.add(telebot.types.InlineKeyboardButton(text='🌐 Выбрать другой язык', callback_data=3))
+        markup.add(telebot.types.InlineKeyboardButton(text='❌ Отмена', callback_data=4))
         msg = bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Введите текст для перевода", reply_markup = markup)
         bot.register_next_step_handler(msg, next_trans2)
     elif call.data == '2':
         markup = telebot.types.InlineKeyboardMarkup()
-        markup.add(telebot.types.InlineKeyboardButton(text='Выбрать другой язык', callback_data=3))
-        markup.add(telebot.types.InlineKeyboardButton(text='Отмена', callback_data=4))
-        msg = bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Введите текст для перевода", reply_markup = markup)
+        markup.add(telebot.types.InlineKeyboardButton(text='🌐 Выбрать другой язык', callback_data=3))
+        markup.add(telebot.types.InlineKeyboardButton(text='❌ Отмена', callback_data=4))
+        msg = bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "💬 Введите текст для перевода", reply_markup = markup)
         bot.register_next_step_handler(msg, next_trans3)
     elif call.data == '3':
         markup = telebot.types.InlineKeyboardMarkup()
         markup.add(telebot.types.InlineKeyboardButton(text='RU',callback_data=1))
         markup.add(telebot.types.InlineKeyboardButton(text='EN ', callback_data=2))
-        msg = bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Выбери язык на который хотите перевести текст.", reply_markup = markup)
+        msg = bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "🌐 Выбери язык на который хотите перевести текст.", reply_markup = markup)
     elif call.data == '4':
         markup = telebot.types.InlineKeyboardMarkup()
-        markup.add(telebot.types.InlineKeyboardButton(text='Перевод', callback_data=3))
-        bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "Вы вернулись в главное меню!", reply_markup = markup)
+        markup.add(telebot.types.InlineKeyboardButton(text='💬 Перевод', callback_data=3))
+        bot.edit_message_text(chat_id = call.message.chat.id, message_id = call.message.message_id, text = "🏠 Вы вернулись в главное меню!", reply_markup = markup)
       
 
 bot.polling()

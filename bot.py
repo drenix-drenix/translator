@@ -13,7 +13,7 @@ translator = Translator()
 def start_message(message):
     markup = telebot.types.InlineKeyboardMarkup()
     markup.add(telebot.types.InlineKeyboardButton(text='💬 Перевод',callback_data=3))
-    bot.send_message(message.chat.id, "👋 Привет! \nЯ бот-переводчик с русского языка на английский язык и наоборот. /nВыбери нужный язык и отправь мне текст, и я переведу его.", reply_markup = markup)
+    bot.send_message(message.chat.id, "👋 Привет! \nЯ бот-переводчик с русского языка на английский язык и наоборот. \nВыбери нужный язык и отправь мне текст, и я переведу его.", reply_markup = markup)
 
 @bot.message_handler(content_types=["text"])
 def send_text(message):

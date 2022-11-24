@@ -12,27 +12,27 @@ translator = Translator()
 @bot.message_handler(commands=["start"])
 def start_message(message):
     markup = telebot.types.InlineKeyboardMarkup()
-    markup.add(telebot.types.InlineKeyboardButton(text='Перевод',callback_data=3))
-    bot.send_message(message.chat.id, "Добро пожаловать! \nЯ бот-переводчик и готов переводить твои фразы.", reply_markup = markup)
+    markup.add(telebot.types.InlineKeyboardButton(text='💬 Перевод',callback_data=3))
+    bot.send_message(message.chat.id, "👋 Привет! \nЯ бот-переводчик с русского языка на английский язык и наоборот. /nВыбери нужный язык и отправь мне текст, и я переведу его.", reply_markup = markup)
 
 @bot.message_handler(content_types=["text"])
 def send_text(message):
-    if message.text == "Перевод":
+    if message.text == "💬 Перевод":
         markup = telebot.types.InlineKeyboardMarkup()
         markup.add(telebot.types.InlineKeyboardButton(text='RU',callback_data=1))
         markup.add(telebot.types.InlineKeyboardButton(text='EN ', callback_data=2))
 
-        bot.send_message(message.chat.id, "Выбери язык на который хотите перевести текст.", reply_markup = markup)
+        bot.send_message(message.chat.id, "🌐 Выбери язык на который хотите перевести текст.", reply_markup = markup)
     else:
         markup = telebot.types.InlineKeyboardMarkup()
         markup.add(telebot.types.InlineKeyboardButton(text='RU',callback_data=1))
         markup.add(telebot.types.InlineKeyboardButton(text='EN ', callback_data=2))
-        bot.send_message(message.chat.id, "Выбери язык на который хотите перевести текст.", reply_markup = markup)
+        bot.send_message(message.chat.id, "🌐 Выбери язык на который хотите перевести текст.", reply_markup = markup)
 
 def next_trans2(message):
     try:
         text = int(message.text)
-        bot.send_message(message.chat.id, "Это не текст!")
+        bot.send_message(message.chat.id, "⚠️ Это не текст!")
     except:
         text =  message.text
         lang = 'ru'
@@ -42,7 +42,7 @@ def next_trans2(message):
 def next_trans3(message):
     try:
         text = int(message.text)
-        bot.send_message(message.chat.id, "Это не текст!")
+        bot.send_message(message.chat.id, "⚠️ Это не текст!")
     except:
         text =  message.text
         lang = 'en'
